@@ -1,9 +1,8 @@
-(ns com.agilecreativity.hn-collector.main_test
+(ns com.agilecreativity.hn_collector.main_test
   (:require [clojure.test :refer :all]
-            ;[com.agilecreativity.hn_collector :refer :all])
-            ))
-
-(use 'clojure.test)
+            ;; Note: is :refer :all the good practices?, probably not!
+            ;;[com.agilecreativity.hn_collector :refer :all]
+))
 
 (deftest addition
   (is (= 4 (+ 2 2)))
@@ -17,4 +16,4 @@
   (addition)
   (subtraction))
 
-(run-tests 'com.agilecreativity.hn-collector.main_test)
+(run-tests 'com.agilecreativity.hn_collector.main_test)

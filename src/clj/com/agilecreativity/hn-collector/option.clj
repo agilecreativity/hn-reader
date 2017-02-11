@@ -1,4 +1,4 @@
-(ns com.agilecreativity.hn-collector.option
+(ns com.agilecreativity.hn_collector.option
   (:require [clojure.string :as string])
   (:gen-class))
 
