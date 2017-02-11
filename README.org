@@ -5,11 +5,15 @@
  - Export the result as =org-mode= file
  - Export the =org-mode= file to pdf, html, etc
  - Export the result using =markdown-to-html= see =cm-test= project for idea.
-
-
 ** Sample Output
 *** Hacker News as of [date-here]
 **** [[http://some-link.org/][story-link-01]]
 ****** comment-link]] - may be [[http://keywords.org][keywords]]
 **** [[http://some-link.org/][story-link-02]]
 ****** comment-link]] - may be [[http://keywords.org][keywords]]
+
+** Code-n-Coffee Meetups
+
+*** Think about the event =ruby for good= coming up in March
+
+**** [[http://rubyforgood.org/2017.html]]
