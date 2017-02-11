@@ -4,7 +4,7 @@
 
 (def options
   [["-p" "--page-count PAGE-COUNT" :default "20"]
-   ["-o" "--output-file OUTPUT-FILE" :default "hacker-news.md"]
+   ["-o" "--output-file OUTPUT-FILE" :default "hacker-news.org"]
    ["-h" "--help"]])
 
 (defn usage [options-summary]
@@ -15,7 +15,7 @@
         "Options:"
         ""
         "--p PAGE-COUNT  the number of pages to be extracted default to 20"
-        "--o OUTPUT-FILE the output file name default to 'hacker-news.md'"
+        "--o OUTPUT-FILE the output file name default to 'hacker-news.org'"
         ""]
        (string/join \newline)))
 

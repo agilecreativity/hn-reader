@@ -12,7 +12,11 @@
 (declare extract-data
          markdown-links
          hn-link-url
-         hn-link-url-item)
+         hn-link-url-item
+         hacker-news-url
+         create-url
+         discussion-url
+         hacker-news)
 
 (defn- hacker-news
   "Read the content of hacker-news for a given page"
@@ -25,14 +29,31 @@
     ;; TODO: move https://news.ycombinator.com to a def for code reuse
     (str "[Comments](https://news.ycombinator.com/item?id=" article-id ")")))
 
+(defn- discussion-url-new
+  [vote-url]
+  (let [article-id (re-find #"\d+" vote-url)
+        article-url (str "https://news.ycombinator.com/item?id=" article-id)]
+    ;; Now we can use this as input to org-mode link
+    ;; Note: create 2nd level heading for now
+    (hn-link-url-item article-url "Comments" 4)))
+
 (defn- create-url
   "Create simple link for a given URL."
   [item]
   (if-let [vote-url (:vote-url item)]
     ;; Only link to the original article if we can extract the link properly
-    (str "[" (:headline item) "](" (:url item) ") :: " (discussion-url vote-url))
-    ;; TODO: need to find other way to get the article id
-    (str "[" (:headline item) "](" (:url item) ")")))
+    (let [head-line (:headline item)
+          main-url (:url item)
+          comment-url (discussion-url-new vote-url)]
+      ;; NOTE:
+      (str
+       (hn-link-url-item main-url head-line 3)
+       "\n"
+       comment-url))
+
+    ;; TODO: need to find other way to get the article id (no comment link for now)!
+    ;;(comment (str "[" (:headline item) "](" (:url item) ")"))
+    (hn-link-url-item (:url item) (:headline item) 3)))
 
 (defn- hacker-news-url
   "Return URL from hacker-news for a given page"
@@ -58,6 +79,14 @@
 
 ;; New stuffs starts here
 
+(defn- sanitized-square-brackets
+  "Replace square brackets with normal brackets for org-mode link."
+  [url-desc]
+  (->
+   url-desc
+   (clojure.string/replace "[" "(")
+   (clojure.string/replace "]" ")")))
+
 (defn hn-link-url
   "convert a given url to org-mode link text"
   ([url]
@@ -74,7 +103,7 @@
   ([url url-desc depth]
    (str (clojure.string/join (repeat depth "*"))
         " "
-        (hn-link-url url url-desc))))
+        (hn-link-url url (sanitized-square-brackets url-desc)))))
 
 (defn -main [& args]
   (let [{:keys [options arguments errors summary]}
@@ -91,16 +120,19 @@
         ;; Show the output file path if required
         ;; (println "Output file : " output-file)
         (with-open [w (io/writer output-file)]
-          (.write w (str "### The last " page-count " pages from Hacker News"))
+          (.write w (str "** The last " page-count " pages from Hacker News\n"))
           (.newLine w)
           ;; Note: Hacker News only show the last 20 pages
           (doseq [n (range (Integer. page-count))]
             (let [content (extract-data (inc n))]
+              ;; NOTE: for debugging only
+              (comment (clojure.pprint/pprint content))
               ;; Let sleep 500 mili-second between new request to be polite
               (Thread/sleep 500)
+              (.write w (str "** page " (+ 1 n) " of " page-count "\n"))
               (doseq [line (markdown-links content)]
                 ;; Show something to get a better experience
-                (println line)
+                ;;(println line)
                 ;; Create a list in Markdown format
-                (.write w (str " - " line))
+                (.write w line)
                 (.newLine w)))))))))
