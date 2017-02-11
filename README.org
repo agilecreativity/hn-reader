@@ -2,9 +2,10 @@
 
 ** Some basic idea about the project
 
-*** Export the result as =org-mode= file
-*** Export the =org-mode= file to pdf, html, etc
-*** Export the result using =markdown-to-html= see =cm-test= project for idea.
+ - Export the result as =org-mode= file
+ - Export the =org-mode= file to pdf, html, etc
+ - Export the result using =markdown-to-html= see =cm-test= project for idea.
+
 
 ** Sample Output
 *** Hacker News as of [date-here]
