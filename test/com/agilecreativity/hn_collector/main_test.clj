@@ -1,19 +1,21 @@
 (ns com.agilecreativity.hn_collector.main_test
   (:require [clojure.test :refer :all]
-            ;; Note: is :refer :all the good practices?, probably not!
-            ;;[com.agilecreativity.hn_collector :refer :all]
-))
+            [com.agilecreativity.hn_collector.main :as hnc]))
 
-(deftest addition
-  (is (= 4 (+ 2 2)))
-  (is (= 7 (+ 3 4))))
+(deftest hn-link-url-test
+  (is (= "[[http://www.google.com][http://www.google.com]]" (hnc/hn-link-url "http://www.google.com")))
+  (is (= "[[http://www.google.com][Google]]") (hnc/hn-link-url "http://www.google.com" "Google")))
 
-(deftest subtraction
-  (is (= 1 (- 4 3)))
-  (is (= 3 (- 7 4))))
+(deftest hn-link-url-item-test
+  (is (= "* [[http://www.google.com][http://www.google.com]]"
+         (hnc/hn-link-url-item "http://www.google.com")))
+  (is (= "* [[http://www.google.com][Google]]"
+         (hn-link-url-item "http://www.google.com" "Google")))
+  (is (= "** [[http://www.google.com][Google]]"
+         (hn-link-url-item "http://www.google.com" "Google" 2))))
 
-(deftest arithmetic
-  (addition)
-  (subtraction))
+(deftest hacker-new-collector-test
+  (hn-link-url-test)
+  (hn-link-url-item-test))
 
 (run-tests 'com.agilecreativity.hn_collector.main_test)
