@@ -1,8 +1,8 @@
-(ns com.agilecreativity.hn_scrapper.main
+(ns com.agilecreativity.hn-collector.main
   (:require [clojure.java.io :as io]
             [clojure.pprint :as pp]
             [clojure.tools.cli :refer [parse-opts] :as cli]
-            [com.agilecreativity.hn_scrapper.option :refer :all :as opt]
+            [com.agilecreativity.hn-collector.option :refer :all :as opt]
             [me.raynes.fs :as fs]
             [markdown.core :as md]
             [reaver :refer [parse extract-from extract text attr]])
