@@ -15,13 +15,14 @@
          create-url
          discussion-url
          hacker-news
-         repeat-string)
+         repeat-string
+         hn-make-org-list)
 
 ;; Common constants to make it easy to change
 (def hn-title-level 3)
 (def hn-page-level 4)
 (def hn-url-level 5)
-(def hn-comment-level 6)
+(def hn-comment-level 0) ;; Note: make comment just regular level
 (def hn-sleep-between-new-request 200) ;; in mili-second
 (def comment-label "Comments")
 
@@ -34,8 +35,7 @@
   [vote-url]
   (let [article-id (re-find #"\d+" vote-url)
         article-url (str "https://news.ycombinator.com/item?id=" article-id)]
-    ;; Now we can use this as input to org-mode link
-    ;; Note: create 2nd level heading for now
+    ;; TODO: just add this to the end of the list
     (hn-link-url-item article-url comment-label hn-comment-level)))
 
 (defn- create-url
@@ -46,11 +46,7 @@
     (let [head-line (:headline item)
           main-url (:url item)
           comment-url (discussion-url vote-url)]
-      ;; NOTE:
-      (str
-       (hn-link-url-item main-url head-line hn-url-level)
-       "\n"
-       comment-url))
+      (str (hn-link-url-item main-url head-line hn-url-level) "::" comment-url))
 
     ;; TODO: need to find other way to get the article id (no comment link for now)!
     (hn-link-url-item (:url item) (:headline item) hn-url-level)))
@@ -78,7 +74,7 @@
                     ".title > a" (attr :href)))))
 
 (defn- sanitized-square-brackets
-  "Replace square brackets with normal brackets for org-mode link."
+  "Replace square brackets with normal brackets to make valid org-mode link."
   [url-desc]
   (->
    url-desc
@@ -89,19 +85,28 @@
   "convert a given url to org-mode link text"
   ([url]
    (str "[[" url "][" url "]]"))
-  ([url link-desc]
-   (str "[[" url "][" link-desc "]]")))
+  ([url url-desc]
+   (str "[[" url "][" url-desc "]]")))
 
 (defn hn-link-url-item
-  "convert a given url to org-mode link text with bullet point."
-  ([url]
-   (hn-link-url-item url url 1))
   ([url url-desc]
-   (hn-link-url-item url url-desc 1))
-  ([url url-desc depth]
-   (str (clojure.string/join (repeat depth "*"))
-        " "
-        (hn-link-url url (sanitized-square-brackets url-desc)))))
+   (hn-link-url-item url url-desc 0))
+  ([url url-desc level]
+   (str
+    (if (pos? level)
+      ;; Create org list if level is positive
+      (hn-make-org-list level "-")
+      "")
+    (hn-link-url url (sanitized-square-brackets url-desc)))))
+
+(defn hn-make-org-list
+  "Make org list to a given level of indentation."
+  ([level]
+   (hn-make-org-list level "-"))
+  ([level list-char]
+   (str (repeat-string level " ")
+        list-char
+        " ")))
 
 (defn repeat-string
   "Repeat a given string string in a given time."
@@ -129,7 +134,7 @@
           (doseq [n (range (Integer. page-count))]
             (let [content (extract-data (inc n))]
               (comment (clojure.pprint/pprint content))
-              ;; Let sleep 500 mili-second between new request to be polite
+              ;; Sleep between each request to be polite
               (Thread/sleep hn-sleep-between-new-request)
               (.write w (str (repeat-string hn-page-level "*")
                              " "
