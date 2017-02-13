@@ -1,6 +1,6 @@
-(ns com.agilecreativity.hn_collector.main_test
+(ns com.agilecreativity.hn_reader.main_test
   (:require [clojure.test :refer :all]
-            [com.agilecreativity.hn_collector.main :as hr]))
+            [com.agilecreativity.hn_reader.main :as hr]))
 
 (deftest hn-link-url-test
   (is (= "[[http://www.google.com][http://www.google.com]]" (hr/hn-link-url "http://www.google.com")))
@@ -20,4 +20,4 @@
   (hn-link-url-test)
   (hn-link-url-item-test))
 
-(run-tests 'com.agilecreativity.hn_collector.main_test)
+(run-tests 'com.agilecreativity.hn_reader.main_test)

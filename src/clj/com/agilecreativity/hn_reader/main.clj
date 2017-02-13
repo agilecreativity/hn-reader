@@ -1,8 +1,8 @@
-(ns com.agilecreativity.hn_collector.main
+(ns com.agilecreativity.hn_reader.main
   (:require [clojure.java.io :as io]
             [clojure.pprint :as pp]
             [clojure.tools.cli :refer [parse-opts] :as cli]
-            [com.agilecreativity.hn_collector.option :refer :all :as opt]
+            [com.agilecreativity.hn_reader.option :refer :all :as opt]
             [me.raynes.fs :as fs]
             [reaver :refer [parse extract-from extract text attr]])
   (:gen-class))

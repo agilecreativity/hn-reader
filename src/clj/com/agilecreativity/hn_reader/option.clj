@@ -1,4 +1,4 @@
-(ns com.agilecreativity.hn_collector.option
+(ns com.agilecreativity.hn_reader.option
   (:require [clojure.string :as string])
   (:gen-class))
 
@@ -10,7 +10,7 @@
 (defn usage [options-summary]
   (->> ["Extract the lastest Hacker News index to a single file"
         ""
-        "Usage: hn-scrapper [options]"
+        "Usage: hn_reader [options]"
         options-summary
         "Options:"
         ""
