@@ -1,21 +1,102 @@
-* README.md
+** hn-reader
 
-** Some basic idea about the project
+- [[https://img.shields.io/clojars/v/scrapper.svg][https://clojars.org/scrapper]])
+- [[https://jarkeeper.com/agilecreativity/hn-scrapper/status.svg][https://jarkeeper.com/agilecreativity/hn-scrapper]]
 
- - Export the result as =org-mode= file
- - Export the =org-mode= file to pdf, html, etc
- - Export the result using =markdown-to-html= see =cm-test= project for idea.
+Access to all of the latest news from [[https://news.ycombinator.com/][Hacker News]].
 
-** Sample Output
-*** Hacker News as of [date-here]
-**** [[http://some-link.org/][story-link-01]]
-****** comment-link]] - may be [[http://keywords.org][keywords]]
-**** [[http://some-link.org/][story-link-02]]
-****** comment-link]] - may be [[http://keywords.org][keywords]]
+*** Installation and basic usage as CLI
 
-** Code-n-Coffee Meetups
-*** Think about the event =ruby for good= coming up in March
-*** [[https://clojuredocs.org/clojure.test/deftest][Testing in Clojure]]
-*** [[http://rubyforgood.org/2017.html]]
-*** How to TDD/BDD in Clojure like using watch for file changes and run tests?
-*** How to switch between test/source when doing TDD in Clojure?
+**** Pre-requisites
+
+- [[http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html][Java SDK]]
+- [[http://leiningen.org/#install][Lieningen - Clojure Build Tool]]
+
+**** Basic Installation
+
+#+BEGIN_SRC sh
+
+  # Clone this repository locally
+  mkdir -p ~/projects
+
+  git clone https://github.com/agilecreativity/hn-reader.git ~/projects/hn-reader
+
+  cd ~/projects/hn-reader
+
+  # Create the `~/bin` folder to hold the executable
+  mkdir -p ~/bin
+
+  # Generate the standalone using `lein bin`
+  lein bin
+#+END_SRC
+
+**** Usage
+
+To see the help just type
+
+#+BEGIN_SRC sh :results silent
+~/bin/hn-reader
+#+END_SRC
+
+This should give you the help like
+
+#+BEGIN_SRC sh :results silent
+  Extract the lastest Hacker News index to a single file
+
+  Usage: hn-reader [options]
+    -p, --page-count PAGE-COUNT    20
+    -o, --output-file OUTPUT-FILE  hacker-news.org
+    -h, --help
+  Options:
+
+  --p PAGE-COUNT  the number of pages to be extracted default to 20
+  --o OUTPUT-FILE the output file name default to 'hacker-news.org'
+#+END_SRC
+
+Now get the list of all news from [[https://news.ycombinator.com/news][Hacker News]]
+
+#+BEGIN_SRC sh :results silent
+  # Get only the first page from the site
+  ~/bin/hn-scrapper --page-count 1 --output-file hacker-news-front-page.org
+
+  # Get all of the news (20 pages) using shorter option
+  ~/bin/hn-scrapper -p 20 -o hacker-news-top-20-pages.org
+#+END_SRC
+
+** Example Sessions and Outputs
+
+*** Sample sessions
+
+![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/01-sample-session.gif)
+
+*** Sample org-mode Output
+
+![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/02-markdown-output.png)
+
+*** Sample Markdown Output view in Github's Gist
+
+![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/03-markdown-as-gist.png)
+
+*** The actual result in Org-Mode format
+
+[Sample-markdown-output](doc/04-hacker-news.org)
+
+** Features idea
+
+- Export/print first level content of hackernews to PDFs or Epubs
+- Group the results in some ways (topics, keywords, link to YouTube?)
+- Persist the result to html pages and store the link just once!
+
+** Useful Links
+
+- [[https://github.com/mischov/reaver][reaver]]
+- [[https://github.com/jhy/jsoup/][jsoup]]
+- [[https://jsoup.org/cookbook/extracting-data/selector-syntax][jsoup selector syntax]]
+- [[https://www.maketecheasier.com/record-screen-as-animated-gif-ubuntu/][record screen as animated gif images]]
+
+** License
+
+Copyright © 2016 Burin Choomnuan
+
+Distributed under the Eclipse Public License either version 1.0 or (at
+your option) any later version.

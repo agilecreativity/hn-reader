@@ -1,0 +1,21 @@
+* README.md
+
+** Some basic idea about the project
+
+ - Export the result as =org-mode= file
+ - Export the =org-mode= file to pdf, html, etc
+ - Export the result using =markdown-to-html= see =cm-test= project for idea.
+
+** Sample Output
+*** Hacker News as of [date-here]
+**** [[http://some-link.org/][story-link-01]]
+****** comment-link]] - may be [[http://keywords.org][keywords]]
+**** [[http://some-link.org/][story-link-02]]
+****** comment-link]] - may be [[http://keywords.org][keywords]]
+
+** Code-n-Coffee Meetups
+*** Think about the event =ruby for good= coming up in March
+*** [[https://clojuredocs.org/clojure.test/deftest][Testing in Clojure]]
+*** [[http://rubyforgood.org/2017.html]]
+*** How to TDD/BDD in Clojure like using watch for file changes and run tests?
+*** How to switch between test/source when doing TDD in Clojure?
