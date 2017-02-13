@@ -1,7 +1,10 @@
-** hn-reader
+* hn-reader
 
-- [[https://img.shields.io/clojars/v/scrapper.svg][https://clojars.org/scrapper]])
-- [[https://jarkeeper.com/agilecreativity/hn-scrapper/status.svg][https://jarkeeper.com/agilecreativity/hn-scrapper]]
+#+ATTR_HTML: title="Clojars"
+[[https://clojars.org/scrapper][file:https://img.shields.io/clojars/v/scrapper.svg]]
+
+#+ATTR_HTML: title="Jarkeeper"
+[[https://jarkeeper.com/agilecreativity/hn-scrapper][file:https://jarkeeper.com/agilecreativity/hn-scrapper/status.svg]]
 
 Access to all of the latest news from [[https://news.ycombinator.com/][Hacker News]].
 
@@ -67,19 +70,12 @@ Now get the list of all news from [[https://news.ycombinator.com/news][Hacker Ne
 
 *** Sample sessions
 
-![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/01-sample-session.gif)
+#+ATTR_HTML: title="sample-session"
+[[https://github.com/agilecreativity/hn-reader/raw/master/doc/01-sample-session.gif][file:https://github.com/agilecreativity/hn-reader/raw/master/doc/01-sample-session.gif]]
 
-*** Sample org-mode Output
+*** Sample output in Org-Mode format
 
-![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/02-markdown-output.png)
-
-*** Sample Markdown Output view in Github's Gist
-
-![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/03-markdown-as-gist.png)
-
-*** The actual result in Org-Mode format
-
-[Sample-markdown-output](doc/04-hacker-news.org)
+[[https://github.com/agilecreativity/hn-reader/blob/master/doc/02-hacker-news.org][sample output in org-mode format]]
 
 ** Features idea
 

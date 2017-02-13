@@ -10,4 +10,7 @@ pom.xml.asc
 .hgignore
 .hg/
 # Generated files
-hacker-news.md
+/hacker-news.pdf
+/hacker-news.tex
+/hacker-news.html
+/hacker-news.org
