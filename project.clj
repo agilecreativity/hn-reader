@@ -1,6 +1,6 @@
-(defproject hn_reader "0.2.0"
+(defproject hn-reader "0.2.0"
   :description "Easy ways to access all of the latest Hacker News links in one page"
-  :url "https://github.com/agilecreativity/hn_reader"
+  :url "https://github.com/agilecreativity/hn-reader"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :profiles {:dev {:dependencies [[lein-bin "0.3.4"]
@@ -8,7 +8,7 @@
              :uberjar {:aot :all}}
   :source-paths ["src/clj"]
   :java-source-paths ["src/java"]
-  :bin {:name "hn_reader"
+  :bin {:name "hn-reader"
         :bin-path "~/bin"
         :bootclasspath true}
   :plugins [[lein-bin "0.3.4"]
