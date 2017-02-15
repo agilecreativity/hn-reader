@@ -3,7 +3,7 @@
   (:gen-class))
 
 (def options
-  [["-p" "--page-count PAGE-COUNT" :default "20"]
+  [["-p" "--page-count PAGE-COUNT" :default "12"]
    ["-o" "--output-file OUTPUT-FILE" :default "hacker-news.org"]
    ["-h" "--help"]])
 
@@ -14,7 +14,7 @@
         options-summary
         "Options:"
         ""
-        "--p PAGE-COUNT  the number of pages to be extracted default to 20"
+        "--p PAGE-COUNT  the number of pages to be extracted default to 12"
         "--o OUTPUT-FILE the output file name default to 'hacker-news.org'"
         ""]
        (string/join \newline)))
