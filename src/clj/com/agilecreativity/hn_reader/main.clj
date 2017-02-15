@@ -4,7 +4,8 @@
             [clojure.tools.cli :refer [parse-opts] :as cli]
             [com.agilecreativity.hn_reader.option :refer :all :as opt]
             [me.raynes.fs :as fs]
-            [reaver :refer [parse extract-from extract text attr]])
+            [reaver :refer [parse extract-from extract text attr]]
+            [clojure.string :as str])
   (:gen-class))
 
 (declare extract-data
@@ -46,7 +47,11 @@
     (let [head-line (:headline item)
           main-url (:url item)
           comment-url (discussion-url vote-url)]
-      (str (hn-link-url-item main-url head-line hn-url-level) "::" comment-url))
+      (str (hn-link-url-item
+            (if (clojure.string/starts-with? main-url "http")
+              main-url
+              (str "https://news.ycombinator.com/" main-url))
+            head-line hn-url-level) "::" comment-url))
 
     ;; TODO: need to find other way to get the article id (no comment link for now)!
     (hn-link-url-item (:url item) (:headline item) hn-url-level)))
