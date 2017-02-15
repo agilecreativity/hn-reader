@@ -1,10 +1,10 @@
 * hn-reader
 
 #+ATTR_HTML: title="Clojars"
-[[https://clojars.org/scrapper][file:https://img.shields.io/clojars/v/scrapper.svg]]
+[[https://clojars.org/hn-reader][file:https://img.shields.io/clojars/v/hn-reader.svg]]
 
 #+ATTR_HTML: title="Jarkeeper"
-[[https://jarkeeper.com/agilecreativity/hn-scrapper][file:https://jarkeeper.com/agilecreativity/hn-scrapper/status.svg]]
+[[https://jarkeeper.com/agilecreativity/hn-reader][file:https://jarkeeper.com/agilecreativity/hn-reader/status.svg]]
 
 Access to all of the latest news from [[https://news.ycombinator.com/][Hacker News]].
 
@@ -68,11 +68,6 @@ Now get the list of all news from [[https://news.ycombinator.com/news][Hacker Ne
 
 ** Example Sessions and Outputs
 
-*** Sample sessions (animated gif)
-
-#+ATTR_HTML: title="sample-session.gif"
-[[https://github.com/agilecreativity/hn-reader/raw/master/doc/sample-session.gif][file:https://github.com/agilecreativity/hn-reader/raw/master/doc/sample-session.gif]]
-
 *** Sample sessions (screencasts)
 
 #+ATTR_HTML: title="sample-session.webm"
@@ -81,12 +76,6 @@ Now get the list of all news from [[https://news.ycombinator.com/news][Hacker Ne
 *** Sample output in Org-Mode format
 
 [[https://github.com/agilecreativity/hn-reader/blob/master/doc/sample-output.org][sample output in org-mode format]]
-
-** Features idea
-
-- Export/print first level content of hackernews to PDFs or Epubs
-- Group the results in some ways (topics, keywords, link to YouTube?)
-- Persist the result to html pages and store the link just once!
 
 ** Useful Links
 
@@ -104,7 +93,6 @@ Now get the list of all news from [[https://news.ycombinator.com/news][Hacker Ne
 
 ** License
 
-Copyright © 2016 Burin Choomnuan
+Copyright © 2016-2017 Burin Choomnuan
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.

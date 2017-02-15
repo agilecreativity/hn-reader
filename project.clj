@@ -12,7 +12,8 @@
         :bin-path "~/bin"
         :bootclasspath true}
   :plugins [[lein-bin "0.3.4"]
-            [lein-cljfmt "0.5.3"]]
+            [lein-cljfmt "0.5.3"]
+            [lein-auto "0.1.3"]]
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [reaver "0.1.2"]
                  [org.clojure/tools.cli "0.3.5"]

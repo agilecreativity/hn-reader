@@ -18,4 +18,21 @@
 *** [[https://clojuredocs.org/clojure.test/deftest][Testing in Clojure]]
 *** [[http://rubyforgood.org/2017.html]]
 *** How to TDD/BDD in Clojure like using watch for file changes and run tests?
-*** How to switch between test/source when doing TDD in Clojure?
+*** How to switch betwe
+
+** Notes from [[http://www.buildfunthings.com/][buildfunthing.com - Productive (CIDER) Testing]]
+
+| Command             | Emacs's shotcuts |   |   |   |
+|---------------------+------------------+---+---+---|
+| cider-test-run-test |                  |   |   |   |
+| more command here   |                  |   |   |   |
+|---------------------+------------------+---+---+---|
+
+** Write the elisp function that will do copy of previous sexp
+
+#+BEGIN_EXAMPLE
+(is (= 3
+       (some-function 1 2)))
+;;     |< cursor position at this point
+;; we like to be able to copy this one without using =sp-copy-sexp=
+#+END_EXAMPLE

@@ -16,6 +16,20 @@
   (is (= "  - [[http://www.google.com][Google]]"
          (hr/hn-link-url-item "http://www.google.com" "Google" 2))))
 
+(deftest repeat-string-test
+  (is (= ""
+         (hr/repeat-string 0 "a")) "zero number will result in empty string")
+  (is (= ""
+         (hr/repeat-string -1 "a")) "negative number will result in empty string")
+  (is (= "1111"
+         (hr/repeat-string 4 "1")) "positive number will result in proper result"))
+
+(deftest hn-make-org-list-test
+  (is (= " - "  (hr/hn-make-org-list 1)))
+  (is (= "- "   (hr/hn-make-org-list 0)))
+  (is (= "  - " (hr/hn-make-org-list 2)))
+  (is (= "  * " (hr/hn-make-org-list 2 "*"))))
+
 (deftest hacker-new-collector-test
   (hn-link-url-test)
   (hn-link-url-item-test))

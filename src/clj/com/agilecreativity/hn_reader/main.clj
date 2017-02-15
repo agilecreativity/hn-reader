@@ -33,6 +33,7 @@
   (slurp (hacker-news-url page-number)))
 
 (defn- discussion-url
+  "Create a discussion url for hacker news."
   [vote-url]
   (let [article-id (re-find #"\d+" vote-url)
         article-url (str "https://news.ycombinator.com/item?id=" article-id)]
@@ -94,6 +95,7 @@
    (str "[[" url "][" url-desc "]]")))
 
 (defn hn-link-url-item
+  "Create hacker new url item."
   ([url url-desc]
    (hn-link-url-item url url-desc 0))
   ([url url-desc level]
@@ -135,7 +137,7 @@
                          " "
                          "The recent " page-count " pages from Hacker News\n"))
           (.newLine w)
-          ;; Note: Hacker News only show the last 20 pages
+          ;; Note: Hacker News only show the last 12 pages
           (doseq [n (range (Integer. page-count))]
             (let [content (extract-data (inc n))]
               (comment (clojure.pprint/pprint content))
