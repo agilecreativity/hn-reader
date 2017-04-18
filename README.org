@@ -60,10 +60,10 @@ Now get the list of all news from [[https://news.ycombinator.com/news][Hacker Ne
 
 #+BEGIN_SRC sh :results silent
   # Get only the first page from the site
-  ~/bin/hn-scrapper --page-count 1 --output-file hacker-news-front-page.org
+  ~/bin/hn-reader --page-count 1 --output-file hacker-news-front-page.org
 
   # Get all of the news (20 pages) using shorter option
-  ~/bin/hn-scrapper -p 20 -o hacker-news-top-20-pages.org
+  ~/bin/hn-reader -p 20 -o hacker-news-top-20-pages.org
 #+END_SRC
 
 ** Example Sessions and Outputs
