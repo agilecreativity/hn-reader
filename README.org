@@ -68,31 +68,21 @@ Now get the list of all news from [[https://news.ycombinator.com/news][Hacker Ne
 
 ** Example Sessions and Outputs
 
-*** Sample sessions (screencasts)
+*** Sample sessions
 
-#+ATTR_HTML: title="sample-session.webm"
-[[https://github.com/agilecreativity/hn-reader/raw/master/doc/sample-session.webm][file:https://github.com/agilecreativity/hn-reader/raw/master/doc/sample-session.webm]]
+[[https://asciinema.org/a/d2coJsZNP2L8oPSGjEHFt5Nti][file:https://asciinema.org/a/d2coJsZNP2L8oPSGjEHFt5Nti.png]]
 
 *** Sample output in Org-Mode format
 
 [[https://github.com/agilecreativity/hn-reader/blob/master/doc/sample-output.org][sample output in org-mode format]]
 
 ** Useful Links
-
 - [[https://github.com/mischov/reaver][reaver]]
 - [[https://github.com/jhy/jsoup/][jsoup]]
 - [[https://jsoup.org/cookbook/extracting-data/selector-syntax][jsoup selector syntax]]
-- [[https://www.maketecheasier.com/record-screen-as-animated-gif-ubuntu/][record screen as animated gif images]]
-- [[http://endlessparentheses.com/embedding-youtube-videos-with-org-mode-links.html][embedded YouTube videos with org-mode]]
-- [[http://stackoverflow.com/questions/4279611/how-to-embed-a-video-into-github-readme-md][How to embed video in Github readme file]]
-
-*** Example of embedded video in Github
-
-#+ATTR_HTML: title="ScreenShot1"
-[[http://youtu.be/vt5fpE0bzSY][https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png]]
 
 ** License
 
-Copyright © 2016-2017 Burin Choomnuan
+Copyright © 2016-2018 Burin Choomnuan
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
