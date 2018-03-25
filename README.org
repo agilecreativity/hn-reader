@@ -74,9 +74,11 @@ Now get the list of all news from [[https://news.ycombinator.com/news][Hacker Ne
 
 *** Sample output in Org-Mode format
 
-[[https://github.com/agilecreativity/hn-reader/blob/master/doc/sample-output.org][sample output in org-mode format]]
+[[https://github.com/agilecreativity/hn-reader/blob/master/doc/sample-output.org][First 12 pages of HackerNews (Emacs Org Mode)]]
+[[https://github.com/agilecreativity/hn-reader/blob/master/doc/hacker-news-top-20-pages.org][All 20 pages of HackerNews (Emacs Org Mode)]]
 
 ** Useful Links
+
 - [[https://github.com/mischov/reaver][reaver]]
 - [[https://github.com/jhy/jsoup/][jsoup]]
 - [[https://jsoup.org/cookbook/extracting-data/selector-syntax][jsoup selector syntax]]
